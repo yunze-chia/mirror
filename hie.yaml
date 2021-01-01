@@ -1,0 +1,10 @@
+cradle:
+  cabal:
+    - path: "src/Main.hs"
+      component: "mirror:exe:mirror"
+
+    - path: "src/App/Types.hs"
+      component: "mirror:exe:mirror"
+
+    - path: "src/App/Options.hs"
+      component: "mirror:exe:mirror"
