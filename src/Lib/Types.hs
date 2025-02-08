@@ -1,7 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
 
-module App.Types where
+module Lib.Types where
 
 import Data.Csv (FromNamedRecord, parseNamedRecord, (.:))
 import Data.List (intercalate)
@@ -26,10 +25,16 @@ instance FromNamedRecord Transaction where
       <*> m .: "debitValue"
       <*> m .: "debitAsset"
 
-newtype Portfolio = Portfolio (M.Map String Double)
+type Symbol = String
+
+data Portfolio = Portfolio
+  { transactions :: [Transaction]
+  , baseCurrency :: Symbol 
+  , holdings :: M.Map Symbol Double
+  }
 
 instance Show Portfolio where
-  show (Portfolio p) = intercalate "\n    " $ "Portfolio components:" : map displayRecord withoutZeros
+  show p = intercalate "\n    " $ "Components:" : map displayRecord withoutZeros
     where
-      withoutZeros = M.toList $ M.filter (/= 0) p
+      withoutZeros = M.toList $ M.filter (/= 0) $ holdings p
       displayRecord (symbol, value) = symbol ++ " " ++ show value

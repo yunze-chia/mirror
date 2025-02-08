@@ -1,19 +1,51 @@
-cabal-version:       >=1.10
+cabal-version:      3.4
+name:               mirror
+version:            0.1.0.0
+build-type:         Simple
+extra-doc-files:    README.md
 
-name:                mirror
-version:             0.1.0.0
-build-type:          Simple
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:
+        Lib.Types,
+        Lib.Portfolio
+    -- other-modules:
+    -- other-extensions:
+    build-depends:
+        base ^>=4.20.0.0,
+        time,
+        cassava,
+        containers
+    hs-source-dirs:   src
+    default-language: Haskell2010
 
 executable mirror
-  main-is:             Main.hs
-  other-modules:       App.Types
-                     , App.Options
-  build-depends:       base >=4.16 && <4.17
-                     , time
-                     , cassava
-                     , bytestring
-                     , containers
-                     , optparse-applicative
-  hs-source-dirs:      src
-  default-language:    Haskell2010
-  ghc-options:         -Wall
+    import:           warnings
+    main-is:          Main.hs
+    other-modules:
+        App.Options
+    -- other-extensions:
+    build-depends:
+        base ^>=4.20.0.0,
+        mirror,
+        time,
+        cassava,
+        bytestring,
+        optparse-applicative
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+test-suite mirror-test
+    import:           warnings
+    default-language: Haskell2010
+    -- other-modules:
+    -- other-extensions:
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.20.0.0,
+        mirror

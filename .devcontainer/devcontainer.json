@@ -1,0 +1,13 @@
+{
+    "image": "haskell:9.10.1-bullseye",
+    "customizations":{
+        "vscode": {
+            "extensions": [
+                "haskell.haskell"
+            ],
+            "settings": {
+                "extensions.ignoreRecommendations": true
+            }
+        }
+    }
+}
