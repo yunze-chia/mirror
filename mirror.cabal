@@ -15,12 +15,11 @@ library
     -- other-modules:
     -- other-extensions:
     build-depends:
-        base ^>=4.20.0.0,
+        base ^>=4.18.0.0,
         time,
         cassava,
         containers
     hs-source-dirs:   src
-    default-language: Haskell2010
 
 executable mirror
     import:           warnings
@@ -29,23 +28,21 @@ executable mirror
         App.Options
     -- other-extensions:
     build-depends:
-        base ^>=4.20.0.0,
+        base ^>=4.18.0.0,
         mirror,
         time,
         cassava,
         bytestring,
         optparse-applicative
     hs-source-dirs:   app
-    default-language: Haskell2010
 
 test-suite mirror-test
     import:           warnings
-    default-language: Haskell2010
     -- other-modules:
     -- other-extensions:
     type:             exitcode-stdio-1.0
     hs-source-dirs:   test
     main-is:          Main.hs
     build-depends:
-        base ^>=4.20.0.0,
+        base ^>=4.18.0.0,
         mirror

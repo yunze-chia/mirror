@@ -1,6 +1,6 @@
 {
-    "image": "haskell:9.10.1-bullseye",
-    "customizations":{
+    "image": "haskell:9.6.6-bullseye",
+    "customizations": {
         "vscode": {
             "extensions": [
                 "haskell.haskell"

@@ -1,10 +1,10 @@
 module Main where
 
 import App.Options (Option (..), opts)
-import Lib.Portfolio (emptyPortfolio, insertTransaction, moneyWeightedReturn, totalInflow)
 import Data.ByteString.Lazy as BS (readFile)
 import Data.Csv (decodeByName)
 import Data.Time (getCurrentTime, utctDay)
+import Lib.Portfolio (emptyPortfolio, insertTransaction, moneyWeightedReturn, totalInflow)
 import Options.Applicative (execParser)
 
 main :: IO ()

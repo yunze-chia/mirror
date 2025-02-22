@@ -28,9 +28,9 @@ instance FromNamedRecord Transaction where
 type Symbol = String
 
 data Portfolio = Portfolio
-  { transactions :: [Transaction]
-  , baseCurrency :: Symbol 
-  , holdings :: M.Map Symbol Double
+  { transactions :: [Transaction],
+    baseCurrency :: Symbol,
+    holdings :: M.Map Symbol Double
   }
 
 instance Show Portfolio where
